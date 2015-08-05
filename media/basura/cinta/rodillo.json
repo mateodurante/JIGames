@@ -1,0 +1,57 @@
+{"frames": [
+
+{
+	"filename": "rodillo0001.png",
+	"frame": {"x":1559,"y":2,"w":380,"h":82},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":140,"w":380,"h":82},
+	"sourceSize": {"w":800,"h":600},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rodillo0002.png",
+	"frame": {"x":389,"y":2,"w":380,"h":83},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":139,"w":380,"h":83},
+	"sourceSize": {"w":800,"h":600},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rodillo0003.png",
+	"frame": {"x":2,"y":2,"w":385,"h":84},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":138,"w":385,"h":84},
+	"sourceSize": {"w":800,"h":600},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rodillo0004.png",
+	"frame": {"x":771,"y":2,"w":392,"h":82},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":140,"w":392,"h":82},
+	"sourceSize": {"w":800,"h":600},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rodillo0005.png",
+	"frame": {"x":1165,"y":2,"w":392,"h":82},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":140,"w":392,"h":82},
+	"sourceSize": {"w":800,"h":600},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "rodillo.png",
+	"format": "RGBA8888",
+	"size": {"w":1941,"h":88},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:cfd90b0624b9e46686a2a3fd02544425:3a82e690f20e11bf9733f049930a1ebc:89ca0d3a9f327c61e1194505c73e58a8$"
+}
+}
