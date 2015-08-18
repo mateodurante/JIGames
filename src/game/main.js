@@ -8,6 +8,8 @@ game.module(
 	game.addAsset('panda.png');
 	game.addAsset('basura/banana2.png');
 	game.addAsset('basura/fondo.png');
+	game.addAsset('basura/plataforma_front.png');
+	game.addAsset('basura/plataforma.png');
  
 	game.addAsset('rodillo.png');
 	game.addAsset('rodillo0001.png');
@@ -59,6 +61,20 @@ game.module(
 		}
 		
 	});
+	game.createClass('PlataformaFront', 'Sprite', {
+		
+		init: function(x, y) {
+
+			this._super('basura/plataforma_front.png', x, y, {anchor: { x: 1, y: 1 }, scale: {x: 1.3, y: 1.3}});
+			game.scene.addObject(this);
+			this.addTo(game.scene.stage);
+
+			//That's it! We don't have to add it to the world anymore because that is dealt with during the construction proces already.
+
+			game.scene.addObject(this);
+		},
+		
+	});
 	game.createClass('Wall2', 'Graphics', {
 
 		interactive: true,
@@ -84,7 +100,7 @@ game.module(
 				game.system.width * 80/100,
 				game.system.width * 93/100
 			]
-			
+			/**
 			//draw shapes. This is done for demonstration purposes only so you know where the walls are.
 			this.position = {x: x, y: y};
             //set linestyle and draw rectangle
@@ -94,7 +110,7 @@ game.module(
             this.endFill();
             this.drawRect(0, -50, width, height);   //x, y, width, height
 			this.addTo(game.scene.stage);
-
+**/
 			//create body definition (the 'blueprint'for the actual body).
 		    var bodyDef = new game.Box2D.BodyDef();
 			bodyDef.position = new game.Box2D.Vec2(
@@ -504,16 +520,14 @@ game.module(
 	        this.stage.addChild(rod);
 	        rod.play();
 
-	        //plataforma
-	        var plataforma = new game.Animation(
-			    'media/basura/plataforma.png'
-			);
- 
-			plataforma.animationSpeed = 0.4;
-			plataforma.position.set(-20, game.system.height / 100);
-			plataforma.scale.set(1.3,1.3);
-	        this.stage.addChild(plataforma);
-	        plataforma.play();
+	        
+
+	        var plataforma = new game.Sprite('basura/plataforma.png').addTo(this.stage);
+			plataforma.position.set(500*game.scale, game.system.height*game.scale - 375); // Place the background in the centre of the screen
+			plataforma.anchor.set(0.5, 0.5); // Set the anchor point to the centre
+			plataforma.scale.set(1.3, 1.3); // Set the anchor point to the centre
+			bg.addChild(plataforma); // Add the background to the bg container
+
 			
 			//create gravity vector
 			var gravity = new game.Box2D.Vec2( 0, 100 * game.Box2D.SCALE );// gravity pull x, y
@@ -561,6 +575,15 @@ game.module(
             text.position.x=15;
             text.position.y=15;
             this.stage.addChild(text);
+            /**
+			var plataforma_front = new game.Sprite('basura/plataforma_front.png').addTo(this.stage);
+			plataforma_front.position.set(500*game.scale, game.system.height*game.scale - 375); // Place the background in the centre of the screen
+			plataforma_front.anchor.set(0.5, 0.5); // Set the anchor point to the centre
+			plataforma_front.scale.set(1.3, 1.3); // Set the anchor point to the centre
+			bg.addChild(plataforma_front); // Add the background to the bg container
+**/
+			this.wall_t8 = new game.PlataformaFront( 1020*game.scale,  game.system.height*game.scale + 15); 
+
 		},
 		
 		update: function(){
@@ -576,6 +599,12 @@ game.module(
 
 		},
          
+		sort: function() {
+			//All sprites have been added to game.scene.stage.
+			//In order to update the zIndex, you have to sort the following list
+			game.scene.stage.children.sort(this.depthCompare);
+		},
+
         toRight: function(){
         	this.wall_t1.toRight();
         	this.wall_t2.toRight();
