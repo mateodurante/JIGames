@@ -697,6 +697,7 @@ game.module(
 					sender=this;
 				}
 				this.click=click.bind(sender,text);
+				//this.tap=click.bind(sender,text);
 			}
 
 	    },
@@ -711,7 +712,7 @@ game.module(
 	        this.text.setStyle({ font: this.fontsize.toString()+'px Arial', fill: "#000000" });
 	    },
 	    tap: function() {
-			this.click;
+			this.click();
 	    },
 	    remove: function() {
 	        game.scene.removeObject(this);
